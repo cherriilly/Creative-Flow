@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caramel&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+    <title>Creative Flow</title>
+
+  
+</head>
+<body>
+    <div class="container">
+    <h1>🎨✨ Welcome to <span class="font2">Creative Flow </span> 🚀💡</h1>
+
+    <section class="heading">
+    <h2>Ready to stir the pot of inspiration and see what bubbles up! 🍲🎨</h2>
+    <p class="text1"> It’s super easy — <span class="text2">just click the Generate button!</span> 🎲✨ </br>
+
+        You’ll instantly get a random image, a color palette, and a topic to work with. 🖼️🎨📝 </p>
+    <p class="text1">Now comes the best part — <span class="text2">let’s get building! 🛠️ </span> <br>
+        Your challenge: create a content piece inspired by the elements you received. It could be anything from a cool graphic, a short video, or even an eye-catching infographic. 🎥🖌️📊
+        <br>Use whatever tools you love — Canva, Adobe, crayons… okay maybe not crayons (unless you're feeling wild 😜).</p>
+    <p class="text1"><span class="text2">The goal? </span><br>
+        To spark your imagination and get your brain buzzing with fresh ideas. 💭⚡
+    Don't forget to share your masterpiece with us on social using #CreativeFlowProject — we can’t wait to see what you create! 🌟📲<br>
+
+   <span class="text2"> Have fun and let that creativity FLOW!</span> 🎉🚿🧠</p>
+    </section>
+
+    <section class="imageHow">
+        <div class="group"><img src="../images/step1.png" alt="Image pointing to the generate button" height="300px"><h3>Click the generate Button </h3>
+        
+        </div>
+
+        <div class="group"><img src="../images/step2.png" alt="Randomly generated content" height="300px"><h3>Color Palette, image and topic will be randomly generated</h3>
+        
+        </div>
+
+        <div class="group"><img src="../images/result.png" alt="Example result" height="300px" width="300px"><h3>Create</h3>
+        
+        </div>
+        
+    </section>
+   
+   
+    <button id="generate" onclick="window.location.href='/generate'">Generate</button>
+
+   <% if(locals.generatedRGB1){ %>  
+    <section class="content">
+        <div class="container2">
+           
+            <h3>Color Palette</h3>
+
+            <ul>
+                <li class= "color" id="rgb1"><%= generatedRGB1 %></li>
+                <li class= "color" id="rgb2"><%= generatedRGB2 %></li>
+                <li class= "color" id="rgb3"><%= generatedRGB3 %></li>
+                <li class= "color" id="rgb4"><%= generatedRGB4 %></li>
+                <li class= "color" id="rgb5"><%= generatedRGB5 %></li>
+            </ul>
+
+             
+
+             <!-- Changing backgroundColor -->
+             <style>
+                #rgb1{
+                    --custom: <%= generatedRGB1 %>;
+                    background-color: var(--custom, black) ;
+                }
+
+                #rgb2{
+                    --custom: <%= generatedRGB2 %>;
+                    background-color: var(--custom, black) ;
+                }
+
+                #rgb3{
+                    --custom: <%= generatedRGB3 %>;
+                    background-color: var(--custom, black) ;
+                }
+
+                #rgb4{
+                    --custom: <%= generatedRGB4 %>;
+                    background-color: var(--custom, black) ;
+                }
+
+                #rgb5{
+                    --custom: <%= generatedRGB5 %>;
+                    background-color: var(--custom, black) ;
+                }
+             </style>
+
+
+
+            <h3>Image</h3>
+
+            <img src= <%= image %> alt="Random generated image" class="generatedImg">
+            <p class="text1 imgtext">Please take a screenshot of the generated image if you wish 
+                to use the generated image in your creation. 
+                Do not download as it will download a different randomly image. </p>
+
+
+            <h3 class="topic">Topic</h3>
+            <p class="font3"><%= topic %></p>
+
+
+        </div>
+    </section>
+
+    <% }else{  %>
+     <h2><%= locals.error %></h2>
+
+    <%}%>
+
+    </div>
+
+   
+</body>
+</html>
